@@ -126,7 +126,7 @@ class Publish extends Command_1.Command {
         const result = await (0, until_1.until)(async () => {
             await this.createReleaseCommit();
             await this.createReleaseTag();
-            await this.pushToRemote();
+            // await this.pushToRemote()
             const releaseNotes = await this.generateReleaseNotes(commits);
             fs.writeFileSync("release-notes.md", releaseNotes);
             const releaseUrl = await this.createGitHubRelease(releaseNotes);

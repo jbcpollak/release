@@ -157,7 +157,7 @@ export class Publish extends Command<Argv> {
     const result = await until(async () => {
       await this.createReleaseCommit()
       await this.createReleaseTag()
-      await this.pushToRemote()
+      // await this.pushToRemote()
       const releaseNotes = await this.generateReleaseNotes(commits)
       fs.writeFileSync("release-notes.md", releaseNotes)
       const releaseUrl = await this.createGitHubRelease(releaseNotes)
